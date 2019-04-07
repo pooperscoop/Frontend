@@ -44,6 +44,15 @@ class Requests extends Component {
         this.forceUpdate();
     }
 
+    async acceptCard(cardID) {
+        console.log('here:', cardID);
+        const card = document.getElementById(cardID);
+        card.style.display = 'none';
+        card.remove();
+        await axios.get(`https://poop-scooper.herokuapp.com/loc/accept/${cardID}`);
+        this.forceUpdate();
+    }
+
     render() {      
         if (!this.props.user) {
             window.location.href = '/signup';
@@ -58,7 +67,7 @@ class Requests extends Component {
                                     <img className='card' id={location._id} src={location.imageURL}></img>
                                     <div className="button-section">
                                         <button onClick={() => this.removeCard(location._id)} className="nope"><i className="fas fa-times"></i></button> 
-                                        <button className="like"><i className="fas fa-check"></i></button>
+                                        <button onClick={() => this.acceptCard(location._id)} className="like"><i className="fas fa-check"></i></button>
                                     </div>
                                 </div>
                             )

@@ -45,21 +45,21 @@ class Dashboard extends Component {
             <div>
                 <h2>Admin Dashboard</h2>
 
-                <div>
-                    {/* <div>
+                <div className='flex'>
+                    <div>
                         <p>14</p>
-                        <p onClick={window.location.href = '/requests'}>New Requests</p>
-                    </div> */}
+                        <p>New Requests</p>
+                    </div>
                     <div>
                         <p>17</p>
                         <p>Routes Ready</p>
                     </div>
                 </div>
 
-                <button>View Requests</button>
-                <button>Go To Routes</button>
+                <button className='btn_primary' onClick={() => window.location.href='/requests'}>View Requests</button>
+                <button className='btn_primary' onClick={() => window.location.href='/routes'}>Enter Routes</button>
 
-                <h2>Location Coordinates</h2>
+                {/* <h2>Location Coordinates</h2>
                 <ul>
                     {this.state.locations.map((location, index) => {
                         return (
@@ -67,7 +67,7 @@ class Dashboard extends Component {
                         )
                     })
                     }
-                </ul>
+                </ul> */}
                 
             </div>
         );

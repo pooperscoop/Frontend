@@ -53,6 +53,8 @@ class Signup extends Component {
                         <input id='password' type='password' name='password' placeholder='Password' value={this.state.password} onChange={this.handleChange}></input>
                     </div>
                     <button class='btn_primary' type='submit'>Signup</button>
+
+                    <p class='text_primary'>Already have an account?</p>
                 </form>
             </div>
         );

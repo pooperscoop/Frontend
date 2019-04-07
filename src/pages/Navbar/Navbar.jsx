@@ -15,7 +15,7 @@ class Navbar extends Component {
         return (
         <div>
             <div className="topnav" id="myTopnav">
-                <a href="#home" className="active">Home</a>
+                <a href="#home" onClick={() => window.location.href='/dashboard'}className="bg-grad-two">Home</a>
                 <a href="#news">News</a>
                 <a href="#contact">Contact</a>
                 <a href="#about">About</a>
