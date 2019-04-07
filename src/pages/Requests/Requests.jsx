@@ -13,8 +13,6 @@ class Requests extends Component {
         this.state = {
             locations: []
         };
-
-
     };
 
     // handleChange = (event) => {   
@@ -32,29 +30,21 @@ class Requests extends Component {
     // };
 
     async componentDidMount() {
-        console.log('here');
-        
-        const locations = await axios.get('https://poop-scooper.herokuapp.com/loc/city/5ca938d677d0070004db47a0');
-        console.log('got locations:', locations.data.city.locations);
-        
+        const locations = await axios.get('https://poop-scooper.herokuapp.com/loc/city/5ca938d677d0070004db47a0');        
         this.setState ({
             locations: locations.data.city.locations
-        })
-        // console.log('locations:', this.state.locations);
+        });
+    };
+    async removeCard(cardID) {
+        console.log('here:', cardID);
+        const card = document.getElementById(cardID);
+        card.style.display = 'none';
+        card.remove();
+        await axios.get(`https://poop-scooper.herokuapp.com/loc/reject/${cardID}`);
+        this.forceUpdate();
     }
-    // async removeCard(cardID) {
-    //     const card = document.getElementById(cardID);
-    //     card.style.display = 'none';
-    //     const cards = document.getElementsByClassName('cards');
-    //     card.remove();
-    //     // card.parentNode.removeChild(card);
-    //     await axios.delete('/loc/5ca938d677d0070004db47a0/:cardID');
-    //     this.forceUpdate()
-    // }
 
     render() {      
-        console.log('locations:', this.state.locations);
-          
         if (!this.props.user) {
             window.location.href = '/signup';
         }
@@ -62,13 +52,17 @@ class Requests extends Component {
             <div className='dashboard'>
                 <h2>Incoming Requests</h2>
                 <div className="cards">
-                    <img className='card' src={avatar}></img>
-                    <img className='card card-two' id='card-two' src={avatar}></img>
-                    <div className="button-section">
-                        <button className="nope"><i className="fas fa-times"></i></button> 
-                        <button className="like"><i className="fas fa-check"></i></button>
-                        {/* on btn click change the fade unique element off the page and dete the node from the DOM*/}
-                    </div>
+                    {this.state.locations.map((location, index) => {
+                            return (
+                                <div className='idk-pos' key={location._id}>
+                                    <img className='card' id={location._id} src={location.imageURL}></img>
+                                    <div className="button-section">
+                                        <button onClick={() => this.removeCard(location._id)} className="nope"><i className="fas fa-times"></i></button> 
+                                        <button className="like"><i className="fas fa-check"></i></button>
+                                    </div>
+                                </div>
+                            )
+                    })}
                 </div>
             </div>
         );
