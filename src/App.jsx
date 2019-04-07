@@ -1,38 +1,26 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-
-import logo from "./logo.svg";
-import "./App.scss";
+import { Route, Switch } from "react-router-dom";
+import Signup from './pages/Signup/';
+import Dashboard from './pages/Dashboard/';
+import Requests from './pages/Requests/';
+import Navbar from './pages/Navbar';
+import './styles/styles.scss';
 
 class App extends Component {
 	render() {
 		return (
-			<div className="App">
-				<header className="App-header">
-					<img src={logo} className="App-logo" alt="logo" />
-					<p>
-						Edit <code>src/App.jsx</code> and save to reload.
-					</p>
-					<a
-						className="App-link"
-						href="https://reactjs.org"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						Learn React
-					</a>
-				</header>
+			<div>
+				<Navbar />
+				<Switch>
+					{/* <Route exact path='/' component={Home} /> */}
+					{/* <Route exact path='/login' component={Login} /> */}
+					<Route exact path='/signup' component={Signup} />
+					<Route exact path='/dashboard' component={Dashboard} />
+					<Route exact path='/requests' component={Requests} />
+				</Switch>
 			</div>
 		);
 	}
 }
 
-const mapStateToProps = state => ({
-	...state
-});
-
-const mapDispatchToProps = dispatch => ({
-	// your dispatches go here.
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
