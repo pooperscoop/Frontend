@@ -34,7 +34,22 @@ class Dashboard extends Component {
         }
         return (
             <div>
-                <h1>Dashboard</h1>
+                <h2>Admin Dashboard</h2>
+
+                <div>
+                    <div>
+                        <p>14</p>
+                        <p onClick={window.location.href = '/requests'}>New Requests</p>
+                    </div>
+                    <div>
+                        <p>17</p>
+                        <p>Routes Ready</p>
+                    </div>
+                </div>
+
+                <button>View Requests</button>
+                <button>Go To Routes</button>
+                
             </div>
         );
     }
