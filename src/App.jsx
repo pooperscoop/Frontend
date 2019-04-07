@@ -1,28 +1,20 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { connect } from "react-redux";
-import Signup from './pages/Signup/'
+import { Route } from "react-router-dom";
+import Signup from './pages/Signup/';
+import Dashboard from './pages/Dashboard/';
 import './styles/styles.scss';
 
 class App extends Component {
 	render() {
 		return (
-			<Router>
+			<div>
 				{/* <Route exact path='/' component={Home} /> */}
 				{/* <Route exact path='/login' component={Login} /> */}
 				<Route exact path='/signup' component={Signup} />
-				{/* <Route exact path='/dashboard' component={Dashboard} /> */}
-			</Router>
+				<Route exact path='/dashboard' component={Dashboard} />
+			</div>
 		);
 	}
 }
 
-const mapStateToProps = state => ({
-	...state
-});
-
-const mapDispatchToProps = dispatch => ({
-	// your dispatches go here.
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;
