@@ -1,0 +1,55 @@
+@import './variables.scss';
+
+.dashboard {
+    // padding: 60px 10px;
+    margin: 16px auto;
+    .card {
+        border-radius: 1.2em;
+        width: 90vw;
+        height: 65vh;
+        position:absolute;  
+        left: 6%; // big hack for mobile center...
+        z-index:auto; 
+        h1 {
+            font-size: 32px;
+            margin: 0px;
+            color: white;
+            font-family: "montserrat-regular", sans-serif;
+            margin-left: 16px;
+        }
+        p {
+            color: $light-white;
+            font-size: 18px;
+            font-family: "montserrat-thin", sans-serif;
+            margin-left: 16px;
+            margin-top: 8px;
+        
+        }
+    }
+    // .card.card-hide {
+    //     z-index: -1;
+    //     background-image: url(https://media.licdn.com/dms/image/C5603AQFaQKqMpoycnA/profile-displayphoto-shrink_800_800/0?e=1545264000&v=beta&t=Fu6CFIF4EDIGJrWiN_LmZ_1Bv81tsWglTGTJVyI5hqE)
+    // }
+    .button-section {
+        padding-top: 25em; // another big hack 
+        display: flex;
+        justify-content: center;
+        .nope {
+            color: $danger;
+        }
+        .like {
+            color: $secondary;
+        }
+        .superlike {
+            color: $main;
+        }
+    }
+    .button-section > * {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        font-size: 24px;
+        margin: 8px 20px;
+        background-color: white;
+    }
+}

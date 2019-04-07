@@ -1,18 +1,5 @@
-
-@font-face {
-    font-family: light;
-    src: url(./fonts/SFMono-Light.otf);
-}
-
-@font-face {
-    font-family: regular;
-    src: url(./fonts/SFMono-Medium.otf);
-}
-
-$background: #262626;
-$darkgray: #303030;
-$primary-blue: #087cb8;
-$light-white: #f3f3f3;
+@import './variables.scss';
+@import './tinder.scss';
 
 html, body {
     font-family: light;
@@ -38,7 +25,7 @@ html, body {
     }
 }
 
-button {
+.btn_primary {
     color: white;
     font-size: 1em;
     // font-weight: 600;

@@ -52,7 +52,7 @@ class Signup extends Component {
                     <div className='form-group'>
                         <input id='password' type='password' name='password' placeholder='Password' value={this.state.password} onChange={this.handleChange}></input>
                     </div>
-                    <button type='submit'>Signup</button>
+                    <button class='btn_primary' type='submit'>Signup</button>
                 </form>
             </div>
         );
